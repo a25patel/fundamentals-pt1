@@ -79,119 +79,124 @@ function replace(arr, from, to) {
 
 
 // Define a function named max that takes in one argument.
-//    arr (array of numbers)
-//
-// Return the maximum number in the array. For example, given [1, 2, -3, 4],
-// then return 4. If the array is empty, return -Infinity.
-//
-// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+// Return the maximum number in the array.
+// If the array is empty, return -Infinity.
 function max(arr) {
-  var max = arr.reduce(function(a,b){
-    return Math.max(a,b);
-  })
+  if(arr){
+    return Math.max.apply( Math, arr );
+  }else{
+    return '-Infinity';
+  }
 }
 
-
-
 // Define a function named min that takes in one argument.
-//    arr (array of numbers)
-//
-// Return the minimum number in the array. For example, given [1, 2, -3, 4],
-// then return -3. If the array is empty, return Infinity.
-//
-// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
-
-
-
+// Return the minimum number in the array.
+// If the array is empty, return Infinity.
+function min(arr) {
+  if(arr){
+    return Math.min.apply( Math, arr );
+  }else{
+    return 'Infinity';
+  }
+}
 
 // Define a function named mean that takes in one argument.
-//    arr (array of numbers)
-//
-// Return the mean (i.e. average) of all of the numbers in the array. For
-// example, given [1, 2, 6], then return 3. If the array is empty, return null.
-
-
-
+// Return the mean of all of the numbers in the array.
+// If the array is empty, return null.
+function mean(arr) {
+  if (arr[0]) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i += 1) {
+      sum += arr[i];
+    }
+    return sum / arr.length;
+  }else{
+    return null;
+  }
+}
 
 // Define a function named median that takes in one argument.
-//    arr (array of numbers)
-//
-// Return the median of all of the numbers. For example, given [1, 2, 6], then
-// return 2. Also, if given [1, 2, 6, 8], return 4. If the array is empty,
+// Return the median of all of the numbers. If the array is empty,
 // return null.
-//
-// Tip: Use Google to learn more about calculating the median.
-// Tip: The given array may not be sorted.
-//
-// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-
-
-
+function median(arr) {
+  if (arr[0]) {
+    if (arr.length % 2 === 0) {
+      var middle = arr.length / 2;
+      var sum = arr[middle] + arr[middle - 1];
+      return sum / 2;
+    }else{
+      var middle = arr.length / 2;
+      return arr[Math.floor(middle)];
+    }
+  }else{
+    return null;
+  }
+}
 
 // Define a function named contains that takes in two arguments.
-//     arr (array of strings)
-//     str (string)
-//
 // Return true if that string exists in the array, otherwise false.
-
-
-
+function contains(arr, str) {
+  for (var i = 0; i < arr.length; i++) {
+    if (str === arr[i]){
+      return true;
+    }
+  }
+  return false;
+}
 
 // Define a function named distance that takes in two arguments.
-//    point1 (object)
-//    point2 (object)
-//
-// Assume each point argument has the following format.
-//    { x: NUMBER, y: NUMBER }
-//
+// { x: NUMBER, y: NUMBER }
 // Return the distance between the two points on a Cartesian coordinate system.
-// For example, given { x: 3, y: 2 } and { x: 9, y: 7 }, then return
-// approximately 7.810249675906654.
-//
-// Tip: Use Google to learn more about calculating the distance.
-
-
-
+function distance(point1, point2) {
+  var x = point2.x - point1.x;
+  var y = point2.y - point1.y;
+  var xsq = Math.pow(x , 2);
+  var ysq = Math.pow(y , 2);
+  var sum = xsq + ysq;
+  return Math.sqrt(sum);
+}
 
 // Define a function named combine that takes in two arguments.
-//    obj1 (object)
-//    obj2 (object)
-//
-// Return a new object that has the key-value pairs of both objects. For
-// example, given { a: 1 } and { b: 2 }, then return { a: 1, b: 2 }.
+// Return a new object that has the key-value pairs of both objects.
 // If there's a key in more than one object,
-// the latest object to have the key will determine the value. For example,
-// given {c: 3} and {c: 4}, then return {c: 4}.
-
-
+// the latest object to have the key will determine the value.
+function combine(obj1, obj2) {
+  var obj = Object.assign({}, obj1, obj2)
+  return obj;
+}
 
 // Define a function called invert that takes in one argument.
-//    obj (object)
-//
 // Return a new object where the keys and values of the argument are inverted.
-// For example, given { a: 1, b: 2 }, then return { '1': 'a', '2': 'b' }.
-
-
-
+function invert(obj) {
+  var newObj = {};
+  for (var key in obj) {
+    newObj[obj[key]] = key;
+  }
+  return newObj;
+}
 
 // Define a function named values that takes in one argument.
-//    obj (object)
-//
-// Return an array of the values of the object. For example, given
-// { a: 1, b: 2, c: 3 }, then return [1, 2, 3].
-
-
-
+// Return an array of the values of the object.
+function values(obj) {
+  var array = [];
+  for (var key in obj) {
+    array.push(obj[key])
+  }
+  return array;
+}
 
 // Define a function called toPairs that takes in one argument.
-//    obj (object)
-//
 // Return a new array where each element is key-value pair array of the
-// argument. For example, given { a: 1, b: 2 }, then return
-// [['a', 1], ['b', 2]].
-
-
-
+// argument.
+    var array = [];
+    for (var key in obj) {
+      var arr = [];
+      arr.push(key);
+      arr.push(obj[key]);
+      array.push(arr);
+    }
+    return array;
+}
 
 // Define a function called fromPairs that takes in one argument.
 //    arr (array)
