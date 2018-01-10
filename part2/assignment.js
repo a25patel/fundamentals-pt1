@@ -61,21 +61,16 @@ function replace(arr, from, to) {
 }
 
 // Define a function named flatten that takes in one argument.
-//     arr (array of arrays)
-//
 // Return a new array that combines all of elements of each inner array. For
 // example, given [[1], [2, 3], [4]], then return [1, 2, 3, 4].
-//
-// Tip: You only need to flatten one level deep.
-//
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
-// function flatten(arr) {
-//   for (var i = 0; i < arr.length; i++) {
-//     var newarr = arr[i].concat(arr[i+1]);
-//   }
-//   return newarr;
-// }
-
+function flatten(arr) {
+  var array = [];
+  for (var i = 0; i < arr.length; i++) {
+    var array = array.concat(arr[i])
+  }
+  return array; 
+}
 
 
 // Define a function named max that takes in one argument.
@@ -188,6 +183,7 @@ function values(obj) {
 // Define a function called toPairs that takes in one argument.
 // Return a new array where each element is key-value pair array of the
 // argument.
+function toPairs(obj) {
     var array = [];
     for (var key in obj) {
       var arr = [];
@@ -199,8 +195,12 @@ function values(obj) {
 }
 
 // Define a function called fromPairs that takes in one argument.
-//    arr (array)
-//
 // Return a new object where each key-value pair is from an element in the
-// argument. For example, given [['a', 1], ['b', 2]], then return
-// { a: 1, b: 2 }.
+// argument.
+function fromPairs(arr) {
+  var obj = {};
+  for (var i = 0; i < arr.length; i++) {
+    obj[arr[i][0]] = arr[i][1];
+  }
+  return obj;
+}
