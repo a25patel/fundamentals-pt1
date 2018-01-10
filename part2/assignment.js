@@ -1,66 +1,64 @@
 // Define a function named sum that takes in one argument.
-//    arr (array of numbers)
-//
-// Return the sum of all of the numbers in the array. For example, given
-// [1, 2, 3, 4], then return 10. If the array is empty, return 0.
 function sum(arr) {
-  // var sum = 0;
-  //
-  // for (var i = 0; i < arr.length; i++) {
-  //   sum += arr[i];
-  // }
-  //
-  // return sum;
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
 }
 
 // Define a function named product that takes in one argument.
-//    arr (array of numbers)
-//
-// Return the product of all of the numbers in the array. For example, given
-// [1, 2, 3, 4], then return 24. If the array is empty, return 1.
+// Return the product of all of the numbers in the array.
 function product(arr) {
-  // YOUR CODE HERE
+  var prod = 1;
+  for (var i = 0; i < arr.length; i++) {
+    prod = arr[i] * prod;
+  }
+  return prod;
 }
 
 // Define a function named concatenate that takes in one argument.
-//    arr (array of strings)
-//
 // Return the concatenation of all the strings in the array. For example, given
 // ['hello', 'my', 'name', 'is', 'ken'], then return 'hellomynameisken'. If the
 // array is empty, return ''.
 function concatenate(arr) {
-
+  var string = '';
+  for (var i = 0; i < arr.length; i++) {
+    string += arr[i]
+  }
+  return string;
 }
 
 // Define a function named repeat that takes in two arguments.
-//     str (string)
-//     times (number)
-//
-// Return a new string containing times copies of the input str. For example,
-// given 'hi' and 4, then return 'hihihihi'.
+// Return a new string containing times copies of the input str.
 function repeat(str, times) {
-
+  var string = '';
+  for (var i = 0; i < times; i++) {
+    string = str + string;
+  }
+  return string;
 }
 
 // Define a function named filterPassingGrades that takes in one argument.
-//     grades (array of numbers)
-//
-// Return a new array with any grade less than 70 filtered out. For example,
-// given [88, 67, 70, 92, 53], then return [88, 70, 92].
+// Return a new array with any grade less than 70 filtered out.
+function highest(value) {
+  return value >= 70;
+}
 
-
-
+function filterPassingGrades(grades) {
+  return grades.filter(highest);
+}
 
 // Define a function named replace that takes in three arguments.
-//    arr (array of numbers)
-//    from (number)
-//    to (number)
-//
 // Return a new array of numbers where all from elements are replaced with to.
-// For example, given [1, 3, 2, 1, 3], 1, and 4, then return [4, 3, 2, 4, 3].
-
-
-
+function replace(arr, from, to) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === from) {
+      arr[i] = to;
+    }
+  }
+  return arr;
+}
 
 // Define a function named flatten that takes in one argument.
 //     arr (array of arrays)
@@ -71,7 +69,12 @@ function repeat(str, times) {
 // Tip: You only need to flatten one level deep.
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
-
+// function flatten(arr) {
+//   for (var i = 0; i < arr.length; i++) {
+//     var newarr = arr[i].concat(arr[i+1]);
+//   }
+//   return newarr;
+// }
 
 
 
@@ -82,7 +85,11 @@ function repeat(str, times) {
 // then return 4. If the array is empty, return -Infinity.
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
-
+function max(arr) {
+  var max = arr.reduce(function(a,b){
+    return Math.max(a,b);
+  })
+}
 
 
 
