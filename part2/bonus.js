@@ -1,12 +1,17 @@
 // Define a function named bigSum that takes in an arbitrary number of
 // arguments. Assume all arguments are a number.
-//
 // Return the sum of all of the arguments. For example, given 1, 2, 3, and 4,
 // then return 10. If there are no arguments, return 0.
-//
-// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
 function bigSum() {
-  // YOUR CODE HERE
+  if (!arguments) {
+    return 0;
+  }else {
+    var sum = 0;
+    for (var i = 0; i < arguments.length; i++) {
+      sum += arguments[i];
+    }
+    return sum;
+  }
 }
 
 // Define a function named pluck that takes in two arguments.
@@ -14,7 +19,6 @@ function bigSum() {
 //     key (string)
 //
 // Return a new array where each element is the keyed value of each object.
-//
 // For example, given the array:
 //    [
 //      { name: 'moe', age: 40 },
@@ -23,9 +27,13 @@ function bigSum() {
 //    ]
 //
 // and the key 'name', then return ['moe', 'larry', 'curly'].
-
-
-
+function pluck(arr, key) {
+  var newArray = [];
+  for (var i = 0; i < arr.length; i++) {
+    newArray.push(arr[i][key]);
+  }
+  return newArray;
+}
 
 // Define a function named pick that takes in two arguments.
 //    obj (object)
@@ -35,8 +43,13 @@ function bigSum() {
 // { name: 'moe', age: 50, id: 1 } and ['name', 'age'], then return
 // { name: 'moe', age: 50 }.
 
-
-
+function pick(obj, keys) {
+  var newObj = {};
+  for (var i =0; i < keys.length; i++) {
+    newObj[keys[i]] = obj[keys[i]];
+  }
+  return newObj;
+}
 
 // Define a function named merge that takes in two arguments.
 //    arr1 (array of sorted numbers)
@@ -44,7 +57,9 @@ function bigSum() {
 //
 // Return a new array that contains all the numbers in each array still sorted.
 // For example, given [1, 3, 5] and [2, 4], then return [1, 2, 3, 4, 5].
-
+function merge(arr1, arr2) {
+  
+}
 
 
 
