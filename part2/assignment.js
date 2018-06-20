@@ -62,14 +62,12 @@ function replace(arr, from, to) {
 
 // Define a function named flatten that takes in one argument.
 // Return a new array that combines all of elements of each inner array. For
-// example, given [[1], [2, 3], [4]], then return [1, 2, 3, 4].
-// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
 function flatten(arr) {
   var array = [];
   for (var i = 0; i < arr.length; i++) {
     var array = array.concat(arr[i])
   }
-  return array; 
+  return array;
 }
 
 
