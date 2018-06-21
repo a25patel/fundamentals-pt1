@@ -58,10 +58,9 @@ function pick(obj, keys) {
 // Return a new array that contains all the numbers in each array still sorted.
 // For example, given [1, 3, 5] and [2, 4], then return [1, 2, 3, 4, 5].
 function merge(arr1, arr2) {
-  
+  var newArr = arr1.concat(arr2);
+  return newArr.sort();
 }
-
-
 
 // Define a function named unique that takes in one argument.
 //    arr (array of strings)
@@ -69,3 +68,13 @@ function merge(arr1, arr2) {
 // Return a new array that contains all the elements of arr minus any
 // duplicates. For example, given ['a', 'b', 'a', 'c'], then return
 // ['a', 'b', 'c'].
+
+function unique(arr) {
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (newArr.indexOf(arr[i]) === -1 ) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
