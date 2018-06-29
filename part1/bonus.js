@@ -46,23 +46,19 @@ function caesarShiftChar(char) {
 // Encode a message using Caesar Shift
 // Return the encoded version of the message. For example, given
 // 'Hello, there!', then return 'uryyb, gurer!'.
-//
-// HINT: You'll need a loop for this.
 function encodeMessage(message) {
   var newMessage = '';
   for (var i = 0; i < message.length; i++) {
-    newMessage.push(caesarShiftChar(message[i]));
+    newMessage += caesarShiftChar(message[i]);
   }
-  return encode;
+  return newMessage;
 }
 
-
-
-
 // Define a function named decodeMessage that takes a one argument
-//    message (string)
-//
 // Return the decoded version of the message. For example, given
 // 'uryyb, gurer!', then return 'Hello, there!'.
-//
-// HINT: Is there a way to use the encodeMessage() function?
+function decodeMessage(string) {
+  var newString = '';
+  newString = encodeMessage(string);
+  return newString;
+}
